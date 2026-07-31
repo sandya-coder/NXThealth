@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NxtHealth AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <div class="brand">NxtHealth AI</div>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#symptom-checker">Symptom Checker</a>
+          <a href="#reminders">Reminders</a>
+          <a href="#hospitals">Hospitals</a>
+        </div>
+      </nav>
+
+      <div class="container hero-content">
+        <div>
+          <p class="eyebrow">Smart Rural Healthcare Assistant</p>
+          <h1>Better healthcare access for every village.</h1>
+          <p class="tagline">
+            AI-guided symptom support, medicine reminders, emergency guidance, and local care navigation.
+          </p>
+          <div class="cta-row">
+            <a class="primary-btn" href="#symptom-checker">Try the symptom checker</a>
+            <button class="secondary-btn" id="sosButton" type="button">Emergency SOS</button>
+          </div>
+        </div>
+        <div class="hero-panel card">
+          <h3>Why it matters</h3>
+          <ul>
+            <li>Timely support in remote areas</li>
+            <li>Multilingual guidance</li>
+            <li>Reduced unnecessary hospital visits</li>
+            <li>Better continuity of care</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">Core features</p>
+          <h2>Designed for rural health support</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="card feature-item">
+            <h3>AI Symptom Checker</h3>
+            <p>Understand common problems with quick guidance and next-step recommendations.</p>
+          </article>
+          <article class="card feature-item">
+            <h3>Multilingual Chatbot</h3>
+            <p>Support for English, Telugu, and Hindi for accessible healthcare advice.</p>
+          </article>
+          <article class="card feature-item">
+            <h3>Medicine Reminders</h3>
+            <p>Keep patients consistent with essential medication schedules and daily routines.</p>
+          </article>
+          <article class="card feature-item">
+            <h3>Nearby Hospitals</h3>
+            <p>Locate nearby facilities and direct users to the right care level quickly.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container" id="symptom-checker">
+        <div class="section-heading">
+          <p class="eyebrow">Health assessment</p>
+          <h2>AI symptom analysis</h2>
+        </div>
+        <div class="checker-grid">
+          <form id="symptomForm" class="card form-card">
+            <label>Symptoms</label>
+            <textarea id="symptoms" rows="5" placeholder="Example: fever for 2 days, cough, mild body pain"></textarea>
+
+            <div class="row">
+              <div>
+                <label>Age</label>
+                <input id="age" type="number" min="1" max="120" value="30" />
+              </div>
+              <div>
+                <label>Language</label>
+                <select id="language">
+                  <option value="en">English</option>
+                  <option value="te">Telugu</option>
+                  <option value="hi">Hindi</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="primary-btn full">Check symptoms</button>
+          </form>
+
+          <div class="card result-card">
+            <h3>Assessment result</h3>
+            <div id="resultBox" class="result-box empty">
+              Your health assessment will appear here after you submit symptoms.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container" id="reminders">
+        <div class="section-heading">
+          <p class="eyebrow">Daily care</p>
+          <h2>Medicine reminders</h2>
+        </div>
+        <div class="card">
+          <ul id="reminderList" class="list"></ul>
+        </div>
+      </section>
+
+      <section class="container" id="hospitals">
+        <div class="section-heading">
+          <p class="eyebrow">Care navigation</p>
+          <h2>Nearby hospitals</h2>
+        </div>
+        <div id="hospitalList" class="hospital-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 NxtHealth AI — Smart Rural Healthcare Assistant</p>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
